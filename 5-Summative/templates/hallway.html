@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="room">
+    <h2>Hallway</h2>
+    <p>
+        You are in the hallway. The exit door is locked with a keypad.
+    </p>
+
+    <div class="card">
+        <h3>Strange Poster</h3>
+        <div id="poster" class="poster">CLICK ME</div>
+        <p id="poster-text">The cat is staring at you.</p>
+    </div>
+
+    <div class="card">
+        <h3>Exit Door</h3>
+        <form method="POST" action="{{ url_for('door_lock') }}">
+            <label>4 digit code:</label>
+            <input type="number" name="door_code">
+            <button type="submit">Unlock</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+    </div>
+
+    <div class="card">
+        <a href="{{ url_for('lab') }}">Back to lab</a>
+    </div>
+</div>
+{% endblock %}

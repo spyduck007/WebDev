@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Escape Room</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>School Lab Escape</h1>
+        <div class="info-bar">
+            <div>
+                {% if session.player_name %}
+                Player: {{ session.player_name }}
+                {% endif %}
+            </div>
+            <div id="timer" data-game-started="{{ 'yes' if game_started else 'no' }}" data-limit="{{ time_limit }}">
+                Time left: --
+            </div>
+        </div>
+    </header>
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <a href="{{ url_for('reset') }}">Restart Game</a>
+    </footer>
+</div>
+
+<script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>

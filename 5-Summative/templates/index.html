@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="room">
+    <h2>Computer Lab</h2>
+    <p>
+        You stayed after school and now the computer lab door is locked.
+        The teacher will be back soon.
+    </p>
+    <p>
+        Find a way out before time runs out.
+    </p>
+
+    <form method="POST">
+        <label>Your name:</label>
+        <input type="text" name="name">
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+        <button type="submit">Start</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="room">
+    <h2>Inside the Lab</h2>
+    <p>
+        You see computers, a teacher’s desk, and an old stereo.
+    </p>
+
+    <div class="card">
+        <h3>Stereo</h3>
+        <p id="stereo-text">It looks really old.</p>
+        <button id="stereo-btn" type="button">Press Play</button>
+    </div>
+
+    <div class="card">
+        <h3>Locked Drawer</h3>
+        <form method="POST" action="{{ url_for('unlock_drawer') }}">
+            <label>Secret word:</label>
+            <input type="text" name="drawer_code">
+            <button type="submit">Unlock</button>
+        </form>
+
+        {% if error %}
+        <p class="error">{{ error }}</p>
+        {% endif %}
+
+        {% if locks.drawer %}
+        <p class="success">The drawer opens. You find a keycard.</p>
+        {% else %}
+        <p>Maybe the stereo is a hint.</p>
+        {% endif %}
+    </div>
+
+    {% if locks.drawer %}
+    <div class="card">
+        <a href="{{ url_for('hallway') }}">Go to the hallway</a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
