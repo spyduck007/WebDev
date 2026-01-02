@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hero Stats</title>
+</head>
+<body>
+
+<h1>{{ hero['c_name'] }}</h1>
+
+<p>Strength: {{ hero['c_strength'] }}</p>
+<p>Defense: {{ hero['c_defense'] }}</p>
+<p>Magic: {{ hero['c_magic'] }}</p>
+
+<h3>Update Strength</h3>
+
+<form action="/update_strength" method="post">
+    <input type="hidden" name="id" value="{{ hero['c_id'] }}">
+    <input type="text" name="strength">
+    <input type="submit" value="Update">
+</form>
+
+<br>
+<a href="/">Back to list</a>
+
+</body>
+</html>

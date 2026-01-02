@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heroes</title>
+</head>
+<body>
+
+<h1>Hero List</h1>
+
+<ul>
+    {% for h in heroes %}
+    <li>
+        <a href="/hero?id={{ h['c_id'] }}">
+            {{ h['c_name'] }}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+</body>
+</html>
