@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Book a room</h2>
+<form method="post">
+    <label>Hotel</label>
+    <select name="hotel_id">
+        <option value="">Choose a hotel</option>
+        {% for h in hotels %}
+        <option value="{{ h.id }}">{{ h.name }}</option>
+        {% endfor %}
+    </select>
+
+    <label>Check-in date</label>
+    <input type="date" name="check_in">
+
+    <label>Check-out date</label>
+    <input type="date" name="check_out">
+
+    <button type="submit">Continue</button>
+
+    {% if error %}
+    <div class="error">{{ error }}</div>
+    {% endif %}
+</form>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Welcome to PokeStay</h2>
+<p>Book a room at a hotel.</p>
+
+<h3>Hotels</h3>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {% for h in hotels %}
+    <tr>
+        <td>{{ h.name }}</td>
+        <td>{{ h.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Confirm booking</h2>
+<p>Hotel: <b>{{ hotel.name }}</b></p>
+<p>Room: <b>{{ room.room_number }}</b></p>
+<p>Price per night: {{ room.price }}</p>
+<p>Check-in: {{ check_in }}</p>
+<p>Check-out: {{ check_out }}</p>
+
+<form method="post" action="{{ url_for('confirm_booking') }}">
+    <input type="hidden" name="hotel_id" value="{{ hotel.id }}">
+    <input type="hidden" name="room_id" value="{{ room.id }}">
+    <input type="hidden" name="check_in" value="{{ check_in }}">
+    <input type="hidden" name="check_out" value="{{ check_out }}">
+    <button type="submit">Confirm</button>
+</form>
+{% endblock %}

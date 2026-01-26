@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Site Admin</h2>
+
+<h3>Users</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Username</th>
+        <th>Display name</th>
+        <th>Guest</th>
+        <th>Hotel admin</th>
+        <th>Site admin</th>
+    </tr>
+    {% for u in users %}
+    <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.username }}</td>
+        <td>{{ u.display_name }}</td>
+        <td>{{ u.is_guest }}</td>
+        <td>{{ u.is_hotel_admin }}</td>
+        <td>{{ u.is_site_admin }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>Hotels</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+    </tr>
+    {% for h in hotels %}
+    <tr>
+        <td>{{ h.id }}</td>
+        <td>{{ h.name }}</td>
+        <td>{{ h.description }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<h3>All bookings</h3>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>User</th>
+        <th>Hotel</th>
+        <th>Room</th>
+        <th>Check-in</th>
+        <th>Check-out</th>
+    </tr>
+    {% for b in bookings %}
+    <tr>
+        <td>{{ b.id }}</td>
+        <td>{{ b.username }}</td>
+        <td>{{ b.hotel_name }}</td>
+        <td>{{ b.room_number }}</td>
+        <td>{{ b.check_in_date }}</td>
+        <td>{{ b.check_out_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
